@@ -1,0 +1,102 @@
+components:
+  #-------------------------------
+  # Reusable schemas (data models)
+  #-------------------------------
+  schemas:
+    User:             # Can be referenced as '#/components/schemas/User'
+      type: object
+      required: [
+          user_basic,
+          user_credentials
+        ]
+      properties:
+        User_Basic:
+          $ref: '#/components/schemas/User_Basic'
+        user_credentials:
+          $ref: '#/components/schemas/User_Credentials'
+    User_Basic:             # Can be referenced as '#/components/schemas/User_Basic'
+      type: object
+      properties:
+        user_id:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        nick_name:
+          type: string
+    User_Credentials:             # Can be referenced as '#/components/schemas/User_Basic'
+      type: object
+      properties:
+        provider:
+          type: string
+          enum:
+          - "local"
+          - "facebook"
+          - "google"
+        password:
+          type: string
+    Register_User:             # Can be referenced as '#/components/schemas/Register_User'
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        provider:
+          type: string
+          enum:
+          - "local"
+          - "facebook"
+          - "google"
+        password:
+          type: string
+    Login:            # Can be referenced as '#/components/schemas/Login'
+      type: object
+      properties:
+        userid:
+          type: string
+        role:
+          type: string
+    LoginResponse:            # Can be referenced as '#/components/schemas/LoginResponse'
+      type: object
+      properties:
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+    Error:            # Can be referenced as '#/components/schemas/Error'
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+
+  #-------------------------------
+  # Reusable operation parameters
+  #-------------------------------
+  parameters:
+    offsetParam:      # Can be referenced via '#/components/parameters/offsetParam'
+      name: offset
+      in: query
+      description: Number of items to skip before returning the results.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+    limitParam:       # Can be referenced as '#/components/parameters/limitParam'
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 100
+        default: 20

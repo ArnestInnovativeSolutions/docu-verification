@@ -1,0 +1,16 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: arnest.in
+    Specs:
+      - Hostname: orderer
+PeerOrgs:
+  - Name: University
+    Domain: university.arnest.in
+    CA:
+      Country: DK
+      Province: Denmark
+      Locality: Copenhagen
+    Template:
+      Count: 1
+    Users:
+      Count: 1

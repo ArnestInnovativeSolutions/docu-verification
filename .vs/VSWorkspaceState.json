@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\server",
+    "\\server\\app",
+    "\\server\\app\\src",
+    "\\server\\chaincode\\university",
+    "\\server\\chaincode\\university\\javascript",
+    "\\server\\chaincode\\university\\javascript\\lib"
+  ],
+  "SelectedNode": "\\server\\app",
+  "PreviewInSolutionExplorer": false
+}

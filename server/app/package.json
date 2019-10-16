@@ -1,0 +1,74 @@
+{
+    "name": "universiry-certificates",
+    "version": "1.0.0",
+    "description": "Certificates - Arnest Innovative Solution LLP",
+    "engines": {
+        "node": ">=8",
+        "npm": ">=5"
+    },
+    "scripts": {
+        "copy": "copyfiles --flat api-schema.yaml ./dist",
+        "build": "tsc & npm run copy",
+        "dev": "tsc & npm run copy & node ./dist/server.js",
+        "start": "npm run copy & nodemon -L",
+        "test": "nyc mocha -r ts-node/register src/**/*.spec.ts",
+        "build:watch": "npm run copy & tsc-w",
+        "prepublishOnly": "npm run build"
+    },
+    "engineStrict": true,
+    "author": "Hyperledger",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "bcrypt": "^3.0.6",
+        "crypto": "^1.0.1",
+        "express": "^4.16.4",
+        "fabric-ca-client": "~1.4.0",
+        "fabric-client": "^1.4.3",
+        "fabric-network": "~1.4.0",
+        "ipfs": "^0.36.4",
+        "jsonwebtoken": "^8.5.1",
+        "memory-cache": "^0.2.0",
+        "nodemailer": "^6.1.0",
+        "swagger-jsdoc": "^3.2.9",
+        "swagger-ui-express": "^4.0.2",
+        "twilio": "^3.30.2",
+        "uuid": "^3.3.2"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/mocha": "^5.2.5",
+        "@types/node": "^10.12.10",
+        "@types/sinon": "^5.0.7",
+        "@types/sinon-chai": "^3.2.1",
+        "chai": "^4.2.0",
+        "copyfiles": "^2.1.0",
+        "mocha": "^5.2.0",
+        "nodemon": "^1.18.11",
+        "nyc": "^14.1.1",
+        "sinon": "^7.1.1",
+        "sinon-chai": "^3.3.0",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.1.6"
+    },
+    "nyc": {
+        "extension": [
+            ".ts",
+            ".tsx"
+        ],
+        "exclude": [
+            "coverage/**",
+            "dist/**"
+        ],
+        "reporter": [
+            "text-summary",
+            "html"
+        ],
+        "all": true,
+        "check-coverage": true,
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+    }
+}

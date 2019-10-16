@@ -1,0 +1,52 @@
+{
+    "name": "basic-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "University",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "mychannel": {
+            "orderers": [
+                "orderer.arnest.in"
+            ],
+            "peers": {
+                "peer0.university.arnest.in": {}
+            }
+        }
+    },
+    "organizations": {
+        "University": {
+            "mspid": "UniversityMSP",
+            "peers": [
+                "peer0.university.arnest.in"
+            ],
+            "certificateAuthorities": [
+                "ca.arnest.in"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer.arnest.in": {
+            "url": "grpc://localhost:7050"
+        }
+    },
+    "peers": {
+        "peer0.university.arnest.in": {
+            "url": "grpc://localhost:7051"
+        }
+    },
+    "certificateAuthorities": {
+        "ca.arnest.in": {
+            "url": "http://localhost:7054",
+            "caName": "ca.arnest.in"
+        }
+    }
+}

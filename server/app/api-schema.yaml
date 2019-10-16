@@ -1,0 +1,56 @@
+components:
+  #-------------------------------
+  # Reusable schemas (data models)
+  #-------------------------------
+  schemas:
+    Login:            # Can be referenced as '#/components/schemas/Login'
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    AuthTokens:             # Can be referenced as '#/components/schemas/AuthTokens'
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: JWT Authorization token
+        refresh_token:
+          type: string
+          description: JWT Authorization refresh token
+    Accreditions:             # Can be referenced as '#/components/schemas/Accreditions'
+      type: object
+      properties:
+        id:
+          type: string
+          description: The accreditation ID
+        name:
+          type: string
+        country:
+          type: string
+  #-------------------------------
+  # Reusable operation parameters
+  #-------------------------------
+  parameters:
+    offsetParam:      # Can be referenced via '#/components/parameters/offsetParam'
+      name: offset
+      in: query
+      description: Number of items to skip before returning the results.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+    limitParam:       # Can be referenced as '#/components/parameters/limitParam'
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 100
+        default: 20
