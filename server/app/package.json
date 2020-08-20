@@ -19,7 +19,7 @@
     "author": "Hyperledger",
     "license": "Apache-2.0",
     "dependencies": {
-        "bcrypt": "^3.0.6",
+        "bcrypt": "^5.0.0",
         "crypto": "^1.0.1",
         "express": "^4.16.4",
         "fabric-ca-client": "~1.4.0",
